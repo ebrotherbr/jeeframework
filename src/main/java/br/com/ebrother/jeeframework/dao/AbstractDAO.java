@@ -180,6 +180,16 @@ public abstract class AbstractDAO<E extends AbstractEntity<P>, P extends Seriali
     }
 
     /**
+     * Executa a query.
+     *
+     * @param criteria a {@link Criteria}.
+     * @return o registro encontrado.
+     */
+    protected E executeCriteriaUniqueResult(final Criteria criteria) {
+        return this.getEntityClass().cast(criteria.uniqueResult());
+    }
+
+    /**
      * Adiciona ordenação na query.
      *
      * @param criteria a {@link Criteria}.
